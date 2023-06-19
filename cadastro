@@ -1,0 +1,68 @@
+package teste.cadastro;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Metodos.Metodos;
+
+public class Automacao {
+	Metodos metodos = new Metodos();
+	
+	WebDriver driver;
+	WebElement findElement (By by) {
+		return null;}
+	
+	By name = By.name("Nome");
+	By sobrenome = By.name("Sobrenome");
+	By nascimento = By.name("DataDeNascimento");
+	By cpf = By.name("CPF");
+	By telefone = By.name("TelefoneAdicional");
+	By data = By.name("DataDeNascimento");
+	
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() throws InterruptedException {
+      metodos.abrirNavegador("https://www.centauro.com.br/slogin");	
+      metodos.clicar(By.xpath("/html/body/div[2]/div/div[3]/section[1]/div/section[2]/div/form/button[2]"));
+      
+      Thread.sleep(3000);
+      
+      metodos.clicar(By.id("adopt-accept-all-button"));
+      
+      Thread.sleep(3000);
+      
+      metodos.clicar(By.xpath("/html/body/div[2]/div/div[3]/div/div/button[2]"));
+      metodos.clicar(By.xpath("/html/body/div[2]/div/div[3]/div[1]/div/button[1]"));
+      
+      Thread.sleep(3000);
+       
+      
+    
+      
+      metodos.preecher(name, "Julia");
+      metodos.preecher(sobrenome, "Ferreira");
+    
+	Thread.sleep(5000);
+	
+	metodos.clicar(By.name("CPF"));
+	metodos.preecher(cpf, "26006247089");
+	
+	Thread.sleep(1000);
+	
+	metodos.clicar(By.name("DataDeNascimento"));
+     metodos.preecher(data, "23111990");	
+	
+}
+}
