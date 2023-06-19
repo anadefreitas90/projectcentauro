@@ -1,0 +1,54 @@
+package Metodos;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+
+
+
+public class Metodos  {
+  WebDriver driver;
+  String urlEsperada;
+
+
+
+public void abrirNavegador(String url) {
+	System.setProperty("webdriver.gecko.driver", "./Drivers/geckodriver.exe");
+	driver = new FirefoxDriver();
+	driver.manage().window().maximize();
+	driver.get(url);
+}
+
+public boolean validarURL(String urlEsperada) {
+    String urlAtual = driver.getCurrentUrl();
+    return urlAtual.equals(urlEsperada);
+}
+
+public void fecharNavegador() {
+	driver.quit();
+}
+
+public WebDriver getDriver() {
+    return driver;
+}
+
+    
+    public void clicar (By string) {
+    	driver.findElement(string).click();
+    }
+
+    public void preecher (By Element, String texto) {
+    	driver.findElement(Element).sendKeys(texto);
+    }
+    
+    public void submit (By Element) {
+    	driver.findElement(Element).submit();
+    }
+
+   public void pause (int tempo) throws InterruptedException {
+    	
+    	Thread.sleep(tempo);
+    	
+    	
+    }
+}
